@@ -1,16 +1,16 @@
 /*
  A C-program for MT19937-64 (2004/9/29 version)
  by Takuji Nishimura and Makoto Matsumoto.
- 
+
  This is a 64-bit version of Mersenne Twister pseudorandom number
  generator.
- 
+
  Copyright (C) 2004, Makoto Matsumoto and Takuji Nishimura,
  All rights reserved.
- 
+
  C++ port and minor modifications by Fuat Alsan
  https://github.com/errmsg
- 
+
  References:
  T. Nishimura, ``Tables of 64-bit Mersenne Twisters''
  ACM Transactions on Modeling and
@@ -50,10 +50,10 @@ void init_genrand64(unsigned long long seed)
 /* init_key is the array for initializing keys */
 /* key_length is its length */
 void init_by_array64(unsigned long long init_key[],
-                     unsigned long long key_length, unsigned long long initialSeed)
+                     unsigned long long key_length)
 {
     unsigned long long i, j, k;
-    init_genrand64(initialSeed);
+    init_genrand64(19650218ULL);
     i=1; j=0;
     k = (NN>key_length ? NN : key_length);
     for (; k; k--) {
@@ -69,7 +69,7 @@ void init_by_array64(unsigned long long init_key[],
         i++;
         if (i>=NN) { mt[0] = mt[NN-1]; i=1; }
     }
-    
+
     mt[0] = 1ULL << 63; /* MSB is 1; assuring non-zero initial array */
 }
 
@@ -79,14 +79,14 @@ unsigned long long genrand64_int64(void)
     int i;
     unsigned long long x;
     static unsigned long long mag01[2]={0ULL, MATRIX_A};
-    
+
     if (mti >= NN) { /* generate NN words at one time */
-        
+
         /* if init_genrand64() has not been called, */
         /* a default initial seed is used     */
         if (mti == NN+1)
             init_genrand64(5489ULL);
-        
+
         for (i=0;i<NN-MM;i++) {
             x = (mt[i]&UM)|(mt[i+1]&LM);
             mt[i] = mt[i+MM] ^ (x>>1) ^ mag01[(int)(x&1ULL)];
@@ -97,17 +97,17 @@ unsigned long long genrand64_int64(void)
         }
         x = (mt[NN-1]&UM)|(mt[0]&LM);
         mt[NN-1] = mt[MM-1] ^ (x>>1) ^ mag01[(int)(x&1ULL)];
-        
+
         mti = 0;
     }
-    
+
     x = mt[mti++];
-    
+
     x ^= (x >> 29) & 0x5555555555555555ULL;
     x ^= (x << 17) & 0x71D67FFFEDA60000ULL;
     x ^= (x << 37) & 0xFFF7EEE000000000ULL;
     x ^= (x >> 43);
-    
+
     return x;
 }
 
@@ -134,4 +134,3 @@ double genrand64_real3(void)
 {
     return ((genrand64_int64() >> 12) + 0.5) * (1.0/4503599627370496.0);
 }
-
