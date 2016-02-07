@@ -29,7 +29,7 @@ Both **initial seed** and **number of outputs** are unsigned integers.
 ## Testing
 Cacth is used for testing. See *tests*. Test files are compiled with CMake.
 
-**IMPORTANT NOTE** OpenCL part of the repo is tested only in OS X.
+**IMPORTANT NOTE:** OpenCL part of the repo is tested only in OS X.
 
 ## Tasks
 - [x] Porting algorithm to C++
