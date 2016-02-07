@@ -1,3 +1,5 @@
 .DS_Store
 build/*
 include/.DS_Store≈
+opencl/.DS_Store≈
+tests/.DS_Store≈
