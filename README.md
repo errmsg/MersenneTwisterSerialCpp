@@ -15,12 +15,15 @@ It is based on the code written by Takuji Nishimura and Makoto Matsumoto. Code i
 CMake is used to generate make files. It is strongly advised to run CMake in *build* directory.
 When CMake is done generating make files, you can use make to compile the sources files. After that
 you can run the executables (as shown below).
-```$ cd build
+
+```
+   $ cd build
    $ cmake -G "Unix Makefiles" ..
    $ make
    $ ./MersenneTwisterSerialCppTest (initial seed) (number of outputs)
-   $ ./MersenneTwisterSerialCppTestWithCatch
+   $ ./MersenneTwisterSerialCppTestWithCatch 
 ```
+
 Both **initial seed** and **number of outputs** are unsigned integers.
 
 ## Testing
