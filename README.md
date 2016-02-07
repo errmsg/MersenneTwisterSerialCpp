@@ -3,9 +3,10 @@ Classic Mersenne twister algorithm for pseudorandom number generator (PRNG). It 
 It is based on the code written by Takuji Nishimura and Makoto Matsumoto. Code is initially writing in C and ported to C++ (by me). Algorithm is 64 bit. See "mt_serial_h" for more.
 
 ## Installation
+```bash
 $ cd to/path/that/you/wish
 $ git clone https://github.com/errmsg/MersenneTwisterSerialCpp.git
-
+``` 
 
 ## Dependencies
 * C++ STL
@@ -16,14 +17,13 @@ CMake is used to generate make files. It is strongly advised to run CMake in *bu
 When CMake is done generating make files, you can use make to compile the sources files. After that
 you can run the executables (as shown below).
 
-
+```bash
    $ cd build
    $ cmake -G "Unix Makefiles" ..
    $ make
    $ ./MersenneTwisterSerialCppTest (initial seed) (number of outputs)
    $ ./MersenneTwisterSerialCppTestWithCatch 
-
-
+``` 
 Both **initial seed** and **number of outputs** are unsigned integers.
 
 ## Testing
