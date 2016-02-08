@@ -1,5 +1,3 @@
-// opencl two times
-
 #define __CL_ENABLE_EXCEPTIONS
 #define LENGTH 10
 #include <iostream>
