@@ -6,7 +6,7 @@ It is based on the code written by Takuji Nishimura and Makoto Matsumoto. Code i
 ```bash
 $ cd to/path/that/you/wish
 $ git clone https://github.com/errmsg/MersenneTwisterSerialCpp.git
-``` 
+```
 
 ## Dependencies
 * C++ STL
@@ -22,8 +22,8 @@ you can run the executables (as shown below).
    $ cmake -G "Unix Makefiles" ..
    $ make
    $ ./MersenneTwisterSerialCppTest (initial seed) (number of outputs)
-   $ ./MersenneTwisterSerialCppTestWithCatch 
-``` 
+   $ ./MersenneTwisterSerialCppTestWithCatch
+```
 Both **initial seed** and **number of outputs** are unsigned integers.
 
 ## Testing
@@ -36,10 +36,11 @@ Cacth is used for testing. See *tests*. Test files are compiled with CMake.
 - [x] Testing for Mersenne twister via [catch](https://github.com/philsquared/Catch) framework (tests/catchTest.cpp)
 - [x] OpenCL basic example (opencl/times_two.cpp)
 - [x] CMake integration
-- [ ] Mersenne twister algorithm parallelization (with OpenCL)
+- [ ] ~~Mersenne twister algorithm parallelization (with OpenCL)~~
 
-## Notes
-I will probably move the parallelized algorithm to another repo. I'll post the link when I'm done.
+
+## **IMPORTANT NOTE**
+Parallel executed version of the algorithm is move to another [repo](https://github.com/errmsg/MersenneTwisterParallelCpp.git)
 
 ## License
-MIT
+MIT (see LICENSE)
